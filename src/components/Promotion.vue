@@ -11,7 +11,12 @@ export default {
 
     components: {
         Button_Component,
-    }
+    },
+    methods : {
+        shopnow(promotion) {
+            alert("let's shop" + promotion.content)
+        }
+    },
 
 }
 
@@ -22,7 +27,7 @@ export default {
     <article class="each_promotion">
         <div class="content">
             <h3> {{ content }}</h3>
-            <Button_Component />
+            <Button_Component :shopNow="shopnow" :promotion="{content}"  />
         </div>
         <img :src="Image" alt="d">
 

@@ -143,6 +143,7 @@ export default {
 
 <template>
 
+
   <main class="main_content">
     <div class="category_container">
       <Category v-for="product in this.Data_Contegory" :key="product.Title" :style="product.Style" :image="product.Img"
