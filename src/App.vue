@@ -1,21 +1,10 @@
 <script>
 import Category from './components/Category.vue';
-import Promotion from './components/Promotion.vue'
-import image1 from './assets/img/image1.png';
-import image2 from './assets/img/image2.png';
-import image3 from './assets/img/image3.png';
-import image4 from './assets/img/image4.png';
-import image5 from './assets/img/image5.png';
-import image6 from './assets/img/image6.png';
-import image7 from './assets/img/image7.png';
-import image8 from './assets/img/image8.png';
-import image9 from './assets/img/image9.png';
-import image10 from './assets/img/image10.png';
+import Promotion from './components/Promotion.vue';
 
 import Csm_1 from './assets/img/Cms_1.jpg';
 import Csm_2 from './assets/img/Cms_2.png';
 import Csm_3 from './assets/img/Cms_3.jpg';
-
 
 export default {
   name: "App",
@@ -25,143 +14,118 @@ export default {
   },
   data() {
     return {
-      Data_promotion: [
+      promotions: [
         {
-          content : "Everyday Fresh & Clean with Our Products",
-          promotion_image : Csm_1,
-          Style : {
-            backgroundColor : "#F0E8D5",
-          }
+          title: "Everyday Fresh and Clean with Our Products",
+          color: "#F0E8D5",
+          image: "../assets/images/onion.jpg",
+          buttonColor: "#42B678",
+          url: "/promotions/1",
         },
         {
-          content : "Make your Breakfast Healthy and Easy",
-          promotion_image : Csm_2,
-          Style : {
-            backgroundColor : "#F3E8E8",
-          }
+          title: "Make your Breakfast Healthy and Easy",
+          color: "#F3E8E8",
+          image: "../assets/images/onion.jpg",
+          buttonColor: "#42B678",
+          url: "/promotions/2",
         },
         {
-          content : "The best Organic Products Online",
-          promotion_image : Csm_3,
-          Style : {
-            backgroundColor : "rgb(229, 234, 239)",
-          }
-        },
-
-
-      ],
-      Data_Contegory: [
-        {
-          Img: image1,
-          Title: "Cake & Milk",
-          Quantity: 14,
-          Style: {
-            backgroundColor: '#F2FCE4',
-          }
-        },
-        {
-          Img: image2,
-          Title: "Peach",
-          Quantity: 17,
-          Style: {
-            backgroundColor: '#FFFCEB',
-          }
-        },
-        {
-          Img: image3,
-          Title: "Oganic Kiwi",
-          Quantity: 21,
-          Style: {
-            backgroundColor: '#ECFFEC',
-          }
-        },
-        {
-          Img: image4,
-          Title: "Red Apple",
-          Quantity: 68,
-          Style: {
-            backgroundColor: '#FEEFEA',
-          }
-        },
-        {
-          Img: image5,
-          Title: "Snack",
-          Quantity: 34,
-          Style: {
-            backgroundColor: '#FFF3EB',
-          }
-
-        },
-        {
-          Img: image6,
-          Title: "Black plum",
-          Quantity: 25,
-          Style: {
-            backgroundColor: '#FFF3FF',
-          }
-        },
-        {
-          Img: image7,
-          Title: "Vegetables",
-          Quantity: 65,
-          Style: {
-            backgroundColor: '#F2FCE4',
-          }
-        },
-        {
-          Img: image8,
-          Title: "Headphone",
-          Quantity: 33,
-          Style: {
-            backgroundColor: '#FFFCEB',
-          }
-        },
-        {
-          Img: image9,
-          Title: "Cake & Milk",
-          Quantity: 54,
-          Style: {
-            backgroundColor: '#F2FCE4',
-          }
-        },
-        {
-          Img: image10,
-          Title: "Orange",
-          Quantity: 63,
-          Style: {
-            backgroundColor: '#FFF3FF',
-          }
+          title: "The best Organic Products Online",
+          color: "rgb(229, 234, 239)",
+          image: "../assets/images/onion.jpg",
+          buttonColor: "#42B678",
+          url: "/promotions/3",
         },
       ],
-    }
-
+      categories: [
+        {
+          name: "Cake & Milk",
+          productCount: 14,
+          color: '#F2FCE4',
+          image: './assets/img/image1.png',
+        },
+        {
+          name: "Peach",
+          productCount: 17,
+          color: '#FFFCEB',
+          image: './assets/img/image2.png',
+        },
+        {
+          name: "Organic Kiwi",
+          productCount: 21,
+          color: '#ECFFEC',
+          image: './assets/img/image3.png',
+        },
+        {
+          name: "Red Apple",
+          productCount: 68,
+          color: '#FEEFEA',
+          image: './assets/img/image4.png',
+        },
+        {
+          name: "Snack",
+          productCount: 34,
+          color: '#FFF3EB',
+          image: './assets/img/image5.png',
+        },
+        {
+          name: "Black Plum",
+          productCount: 25,
+          color: '#FFF3FF',
+          image: './assets/img/image6.png',
+        },
+        {
+          name: "Vegetables",
+          productCount: 65,
+          color: '#F2FCE4',
+          image: './assets/img/image7.png',
+        },
+        {
+          name: "Headphones",
+          productCount: 33,
+          color: '#FFFCEB',
+          image: './assets/img/image8.png',
+        },
+        {
+          name: "Cake & Milk",
+          productCount: 54,
+          color: '#F2FCE4',
+          image: './assets/img/image9.png',
+        },
+        {
+          name: "Orange",
+          productCount: 63,
+          color: '#FFF3FF',
+          image: './assets/img/image10.png',
+        },
+      ],
+    };
   },
-}
-
-
+};
 </script>
 
 <template>
-
-
   <main class="main_content">
     <div class="category_container">
-      <Category v-for="product in this.Data_Contegory" :key="product.Title" :style="product.Style" :image="product.Img"
-        :title="product.Title" :quantity="product.Quantity" />
-
+      <Category 
+        v-for="category in categories" 
+        :key="category.name" 
+        :style="{ backgroundColor: category.color }" 
+        :image="category.image" 
+        :title="category.name" 
+        :quantity="category.productCount" />
     </div>
-    <div class="Promotion_container">
-      <Promotion v-for="promotion in Data_promotion" 
-      :style="promotion.Style"
-      :key="promotion.content"
-      :Image="promotion.promotion_image"
-      :content="promotion.content"
-      />
-
+    <div class="promotion_container">
+      <Promotion 
+        v-for="promotion in promotions" 
+        :key="promotion." 
+        :title="promotion.title"
+        :color="promotion.color"
+        :image="promotion.image"
+        :buttonColor="promotion."
+        :url="promotion.url" />
     </div>
-
   </main>
-
 </template>
 
 <style>
@@ -171,8 +135,6 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-
-
 }
 
 .main_content .category_container {
@@ -184,7 +146,8 @@ export default {
   grid-template-columns: repeat(auto-fit, minmax(6.5rem, 1fr));
   height: auto;
 }
-.main_content .Promotion_container{
+
+.main_content .promotion_container {
   width: 96%;
   height: auto;
   display: grid;
@@ -192,5 +155,4 @@ export default {
   place-items: center;
   row-gap: 1rem;
 }
-
 </style>
