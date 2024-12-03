@@ -1,39 +1,33 @@
-<script>
-import Button_Component from './Button_Component.vue';
-
-export default {
-    name: "Promotion",
-
-    props : {
-        content : String,
-        Image : String
-    },
-
-    components: {
-        Button_Component,
-    },
-    methods : {
-        shopnow(promotion) {
-            alert("let's shop" + promotion.content)
-        }
-    },
-
-}
-
-</script>
-
 <template>
-
-    <article class="each_promotion">
-        <div class="content">
-            <h3> {{ content }}</h3>
-            <Button_Component :shopNow="shopnow" :promotion="{content}"  />
-        </div>
-        <img :src="Image" alt="d">
-
+    <article class="each_promotion" :style="{ backgroundColor: color }">
+      <div class="content">
+        <h3>{{ content }}</h3>
+        <!-- Button_Component receives 'shopnow' method and promotion title as props -->
+        <Button_Component :shopNow="shopnow" :promotion="content" />
+      </div>
+      <img :src="Image" alt="promotion image" />
     </article>
-
-</template>
+  </template>
+  
+  <script>
+  import Button_Component from './Button_Component.vue';
+  
+  export default {
+    name: 'Promotion',
+  
+    props: {
+      content: String,  // Title of the promotion
+      Image: String,    // Image URL for the promotion
+      shopnow: Function, // Method to handle "shop now" click event
+      color:String
+    },
+  
+    components: {
+      Button_Component,
+    },
+  };
+  </script>
+  
 
 <style>
 
